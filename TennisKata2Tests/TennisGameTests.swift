@@ -67,14 +67,7 @@ class TennisGameTests: XCTestCase {
     }
 
     func testScoreShouldBeDeuceWhenBothPlayersScoreThrice() {
-        game.player1Scores()
-        game.player2Scores()
-
-        game.player1Scores()
-        game.player2Scores()
-
-        game.player1Scores()
-        game.player2Scores()
+        deuce()
 
         XCTAssertEqual(game.score, "Deuce")
     }
@@ -98,17 +91,21 @@ class TennisGameTests: XCTestCase {
     }
 
     func testScoreShouldBeAdvantagePlayer1WhenPlayer1ScoresAfterDeuce() {
-        game.player1Scores()
-        game.player2Scores()
-
-        game.player1Scores()
-        game.player2Scores()
-
-        game.player1Scores()
-        game.player2Scores()
+        deuce()
 
         game.player1Scores()
 
         XCTAssertEqual(game.score, "Advantage Player 1")
+    }
+
+    func deuce() {
+        game.player1Scores()
+        game.player2Scores()
+
+        game.player1Scores()
+        game.player2Scores()
+
+        game.player1Scores()
+        game.player2Scores()
     }
 }
