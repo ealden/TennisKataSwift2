@@ -37,6 +37,8 @@ class TennisGame {
 
         if player1TennisScore == .Win {
             return "Player 1 Wins!"
+        } else if player2TennisScore == .Win {
+            return "Player 2 Wins!"
         } else if player1TennisScore == player2TennisScore {
             if player1TennisScore == .Forty {
                 return "Deuce"
