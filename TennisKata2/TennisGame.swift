@@ -1,24 +1,40 @@
 import Foundation
 
 class TennisGame {
+    enum TennisScore {
+        case Love
+        case Fifteen
+        case Thirty
+        case Forty
+    }
+
     var score: String {
         switch player1Score {
-        case 0:
+        case .Love:
             return "Love-All"
-        case 1:
+        case .Fifteen:
             return "Fifteen-Love"
-        case 2:
+        case .Thirty:
             return "Thirty-Love"
-        case 3:
+        case .Forty:
             return "Forty-Love"
         default:
             return "Invalid"
         }
     }
 
-    var player1Score = 0
+    var player1Score = TennisScore.Love
 
     func player1Scores() {
-        player1Score += 1
+        switch player1Score {
+        case .Love:
+            player1Score = .Fifteen
+        case .Fifteen:
+            player1Score = .Thirty
+        case .Thirty:
+            player1Score = .Forty
+        default:
+            player1Score = .Forty
+        }
     }
 }
