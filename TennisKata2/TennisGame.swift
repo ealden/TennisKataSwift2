@@ -21,18 +21,22 @@ class TennisGame {
         }
     }
 
+    let tennisScoreToString = [
+        TennisScore.Love: "Love",
+        .Fifteen: "Fifteen",
+        .Thirty: "Thirty",
+        .Forty: "Forty"
+    ]
+
     var score: String {
-        switch player1TennisScore {
-        case .Love:
+        if player1TennisScore == .Love {
             return "Love-All"
-        case .Fifteen:
-            return "Fifteen-Love"
-        case .Thirty:
-            return "Thirty-Love"
-        case .Forty:
-            return "Forty-Love"
-        default:
-            return "Invalid"
+        }
+
+        if let player1Score = tennisScoreToString[player1TennisScore] {
+            return "\(player1Score)-Love"
+        } else {
+            return "\(TennisScore.Forty)-Love"
         }
     }
 
