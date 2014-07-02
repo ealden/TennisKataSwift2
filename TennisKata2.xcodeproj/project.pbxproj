@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		F3601B4619643029000A0E46 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3601B4519643029000A0E46 /* AppDelegate.swift */; };
 		F3601B4819643029000A0E46 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F3601B4719643029000A0E46 /* Images.xcassets */; };
-		F3601B5419643029000A0E46 /* TennisKata2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3601B5319643029000A0E46 /* TennisKata2Tests.swift */; };
+		F3601B5419643029000A0E46 /* TennisGameTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3601B5319643029000A0E46 /* TennisGameTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,7 +29,7 @@
 		F3601B4719643029000A0E46 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F3601B4D19643029000A0E46 /* TennisKata2Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TennisKata2Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3601B5219643029000A0E46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F3601B5319643029000A0E46 /* TennisKata2Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisKata2Tests.swift; sourceTree = "<group>"; };
+		F3601B5319643029000A0E46 /* TennisGameTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TennisGameTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +89,7 @@
 		F3601B5019643029000A0E46 /* TennisKata2Tests */ = {
 			isa = PBXGroup;
 			children = (
-				F3601B5319643029000A0E46 /* TennisKata2Tests.swift */,
+				F3601B5319643029000A0E46 /* TennisGameTests.swift */,
 				F3601B5119643029000A0E46 /* Supporting Files */,
 			);
 			path = TennisKata2Tests;
@@ -208,7 +208,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F3601B5419643029000A0E46 /* TennisKata2Tests.swift in Sources */,
+				F3601B5419643029000A0E46 /* TennisGameTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
