@@ -29,14 +29,14 @@ class TennisGame {
     ]
 
     var score: String {
-        if (player1TennisScore == .Love) && (player1TennisScore == player2TennisScore){
-            return "Love-All"
-        }
-
         let player1Score = tennisScoreToString[player1TennisScore]
         let player2Score = tennisScoreToString[player2TennisScore]
 
-        return "\(player1Score)-\(player2Score)"
+        if player1TennisScore == player2TennisScore {
+            return "\(player1Score)-All"
+        } else {
+            return "\(player1Score)-\(player2Score)"
+        }
     }
 
     var player1TennisScore = TennisScore.Love
