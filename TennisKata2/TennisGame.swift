@@ -36,11 +36,7 @@ class TennisGame {
         let player1Score = tennisScoreToString[player1TennisScore]
         let player2Score = tennisScoreToString[player2TennisScore]
 
-        if player1Score && player2Score {
-            return "\(player1Score)-\(player2Score)"
-        } else {
-            return "\(TennisScore.Forty)-Love"
-        }
+        return "\(player1Score)-\(player2Score)"
     }
 
     var player1TennisScore = TennisScore.Love
