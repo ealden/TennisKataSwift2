@@ -6,4 +6,10 @@ class TennisGameTests: XCTestCase {
     func testScoreShouldBeLoveAllIfPlayersHaveNotScored() {
         XCTAssertEqual(game.score, "Love-All")
     }
+
+    func testScoreShouldBeFifteenLoveWhenPlayer1Scores() {
+        game.player1Scores()
+
+        XCTAssertEqual(game.score, "Fifteen-Love")
+    }
 }
