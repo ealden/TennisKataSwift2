@@ -6,6 +6,19 @@ class TennisGame {
         case Fifteen
         case Thirty
         case Forty
+
+        func next() -> TennisScore {
+            switch self {
+            case .Love:
+                return .Fifteen
+            case .Fifteen:
+                return .Thirty
+            case .Thirty:
+                return .Forty
+            default:
+                return .Forty
+            }
+        }
     }
 
     var score: String {
@@ -26,15 +39,6 @@ class TennisGame {
     var player1Score = TennisScore.Love
 
     func player1Scores() {
-        switch player1Score {
-        case .Love:
-            player1Score = .Fifteen
-        case .Fifteen:
-            player1Score = .Thirty
-        case .Thirty:
-            player1Score = .Forty
-        default:
-            player1Score = .Forty
-        }
+        player1Score = player1Score.next()
     }
 }
