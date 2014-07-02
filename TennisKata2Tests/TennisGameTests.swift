@@ -65,4 +65,17 @@ class TennisGameTests: XCTestCase {
 
         XCTAssertEqual(game.score, "Thirty-All")
     }
+
+    func testScoreShouldBeDeuceWhenBothPlayersScoreThrice() {
+        game.player1Scores()
+        game.player2Scores()
+
+        game.player1Scores()
+        game.player2Scores()
+
+        game.player1Scores()
+        game.player2Scores()
+
+        XCTAssertEqual(game.score, "Deuce")
+    }
 }

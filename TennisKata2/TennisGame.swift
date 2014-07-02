@@ -33,7 +33,11 @@ class TennisGame {
         let player2Score = tennisScoreToString[player2TennisScore]
 
         if player1TennisScore == player2TennisScore {
-            return "\(player1Score)-All"
+            if player1TennisScore == .Forty {
+                return "Deuce"
+            } else {
+                return "\(player1Score)-All"
+            }
         } else {
             return "\(player1Score)-\(player2Score)"
         }
