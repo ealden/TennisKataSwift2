@@ -55,4 +55,14 @@ class TennisGameTests: XCTestCase {
 
         XCTAssertEqual(game.score, "Fifteen-All")
     }
+
+    func testScoreShouldBeThirtyAllWhenBothPlayersScoreTwice() {
+        game.player1Scores()
+        game.player2Scores()
+
+        game.player1Scores()
+        game.player2Scores()
+
+        XCTAssertEqual(game.score, "Thirty-All")
+    }
 }
