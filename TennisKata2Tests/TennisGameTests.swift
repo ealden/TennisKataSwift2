@@ -19,4 +19,12 @@ class TennisGameTests: XCTestCase {
 
         XCTAssertEqual(game.score, "Thirty-Love")
     }
+
+    func testScoreShouldBeFortyLoveWhenPlayer1ScoresThrice() {
+        game.player1Scores()
+        game.player1Scores()
+        game.player1Scores()
+
+        XCTAssertEqual(game.score, "Forty-Love")
+    }
 }

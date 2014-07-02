@@ -9,6 +9,8 @@ class TennisGame {
             return "Fifteen-Love"
         case 2:
             return "Thirty-Love"
+        case 3:
+            return "Forty-Love"
         default:
             return "Invalid"
         }
