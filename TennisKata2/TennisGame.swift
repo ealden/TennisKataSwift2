@@ -45,6 +45,8 @@ class TennisGame {
             return "Player 2 Wins!"
         case (.Advantage, _):
             return "Advantage Player 1"
+        case (_, .Advantage):
+            return "Advantage Player 2"
         case (.Love, .Love):
             return "Love-All"
         case (.Fifteen, .Fifteen):
