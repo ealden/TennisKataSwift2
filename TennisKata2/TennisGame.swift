@@ -22,7 +22,7 @@ class TennisGame {
     }
 
     var score: String {
-        switch player1Score {
+        switch player1TennisScore {
         case .Love:
             return "Love-All"
         case .Fifteen:
@@ -36,9 +36,9 @@ class TennisGame {
         }
     }
 
-    var player1Score = TennisScore.Love
+    var player1TennisScore = TennisScore.Love
 
     func player1Scores() {
-        player1Score = player1Score.next()
+        player1TennisScore = player1TennisScore.next()
     }
 }
