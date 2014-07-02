@@ -6,6 +6,7 @@ class TennisGame {
         case Fifteen
         case Thirty
         case Forty
+        case Win
 
         func next() -> TennisScore {
             switch self {
@@ -15,8 +16,10 @@ class TennisGame {
                 return .Thirty
             case .Thirty:
                 return .Forty
-            default:
-                return .Forty
+            case .Forty:
+                return .Win
+            case .Win:
+                return .Win
             }
         }
     }
@@ -32,7 +35,9 @@ class TennisGame {
         let player1Score = tennisScoreToString[player1TennisScore]
         let player2Score = tennisScoreToString[player2TennisScore]
 
-        if player1TennisScore == player2TennisScore {
+        if player1TennisScore == .Win {
+            return "Player 1 Wins!"
+        } else if player1TennisScore == player2TennisScore {
             if player1TennisScore == .Forty {
                 return "Deuce"
             } else {
