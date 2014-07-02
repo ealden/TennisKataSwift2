@@ -38,6 +38,10 @@ class TennisGame {
         let player1Score = tennisScoreToString[player1TennisScore]
         let player2Score = tennisScoreToString[player2TennisScore]
 
+        if player2TennisScore == .Win {
+            return "Player 2 Wins!"
+        }
+
         switch (player1TennisScore, player2TennisScore) {
         case (.Win, _):
             return "Player 1 Wins!"
