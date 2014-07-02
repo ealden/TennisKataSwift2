@@ -1,7 +1,9 @@
 import XCTest
 
 class TennisGameTests: XCTestCase {
-    func testExample() {
-        XCTAssert(true, "Pass")
+    let game = TennisGame()
+
+    func testScoreShouldBeLoveAllIfPlayersHaveNotScored() {
+        XCTAssertEqual(game.score, "Love-All")
     }
 }
