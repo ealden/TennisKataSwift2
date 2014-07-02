@@ -2,16 +2,21 @@ import Foundation
 
 class TennisGame {
     var score: String {
-        if scored {
-            return "Fifteen-Love"
-        } else {
+        switch player1Score {
+        case 0:
             return "Love-All"
+        case 1:
+            return "Fifteen-Love"
+        case 2:
+            return "Thirty-Love"
+        default:
+            return "Invalid"
         }
     }
 
-    var scored = false
+    var player1Score = 0
 
     func player1Scores() {
-        scored = true
+        player1Score += 1
     }
 }
