@@ -35,17 +35,20 @@ class TennisGame {
         let player1Score = tennisScoreToString[player1TennisScore]
         let player2Score = tennisScoreToString[player2TennisScore]
 
-        if player1TennisScore == .Win {
+        switch (player1TennisScore, player2TennisScore) {
+        case (.Win, _):
             return "Player 1 Wins!"
-        } else if player2TennisScore == .Win {
+        case (_, .Win):
             return "Player 2 Wins!"
-        } else if player1TennisScore == player2TennisScore {
-            if player1TennisScore == .Forty {
-                return "Deuce"
-            } else {
-                return "\(player1Score)-All"
-            }
-        } else {
+        case (.Love, .Love):
+            return "Love-All"
+        case (.Fifteen, .Fifteen):
+            return "Fifteen-All"
+        case (.Thirty, .Thirty):
+            return "Thirty-All"
+        case (.Forty, .Forty):
+            return "Deuce"
+        default:
             return "\(player1Score)-\(player2Score)"
         }
     }
