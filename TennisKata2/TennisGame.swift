@@ -6,6 +6,7 @@ class TennisGame {
         case Fifteen
         case Thirty
         case Forty
+        case Advantage
         case Win
 
         func next() -> TennisScore {
@@ -17,7 +18,9 @@ class TennisGame {
             case .Thirty:
                 return .Forty
             case .Forty:
-                return .Win
+                return .Advantage
+            case .Advantage:
+                return .Forty
             case .Win:
                 return .Win
             }
@@ -40,6 +43,8 @@ class TennisGame {
             return "Player 1 Wins!"
         case (_, .Win):
             return "Player 2 Wins!"
+        case (.Advantage, _):
+            return "Advantage Player 1"
         case (.Love, .Love):
             return "Love-All"
         case (.Fifteen, .Fifteen):
@@ -57,10 +62,18 @@ class TennisGame {
     var player2TennisScore = TennisScore.Love
 
     func player1Scores() {
-        player1TennisScore = player1TennisScore.next()
+        player1TennisScore = score(player1TennisScore, against: player2TennisScore)
     }
 
     func player2Scores() {
-        player2TennisScore = player2TennisScore.next()
+        player2TennisScore = score(player2TennisScore, against: player1TennisScore)
+    }
+
+    func score(playerTennisScore: TennisScore, against otherPlayerTennisScore: TennisScore) -> TennisScore {
+        if (playerTennisScore == .Forty) && (otherPlayerTennisScore != .Forty) {
+            return .Win
+        } else {
+            return playerTennisScore.next()
+        }
     }
 }
