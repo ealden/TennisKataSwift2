@@ -29,20 +29,28 @@ class TennisGame {
     ]
 
     var score: String {
-        if player1TennisScore == .Love {
+        if (player1TennisScore == .Love) && (player1TennisScore == player2TennisScore){
             return "Love-All"
         }
 
-        if let player1Score = tennisScoreToString[player1TennisScore] {
-            return "\(player1Score)-Love"
+        let player1Score = tennisScoreToString[player1TennisScore]
+        let player2Score = tennisScoreToString[player2TennisScore]
+
+        if player1Score && player2Score {
+            return "\(player1Score)-\(player2Score)"
         } else {
             return "\(TennisScore.Forty)-Love"
         }
     }
 
     var player1TennisScore = TennisScore.Love
+    var player2TennisScore = TennisScore.Love
 
     func player1Scores() {
         player1TennisScore = player1TennisScore.next()
+    }
+
+    func player2Scores() {
+        player2TennisScore = player2TennisScore.next()
     }
 }
