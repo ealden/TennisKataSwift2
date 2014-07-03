@@ -65,14 +65,10 @@ class TennisGame {
 
     func player1Scores() {
         score(&player1TennisScore, against: &player2TennisScore)
-
-        checkIfDeuce()
     }
 
     func player2Scores() {
         score(&player2TennisScore, against: &player1TennisScore)
-
-        checkIfDeuce()
     }
 
     func score(inout playerTennisScore: TennisScore, inout against otherPlayerTennisScore: TennisScore) {
@@ -83,12 +79,10 @@ class TennisGame {
         } else {
             playerTennisScore = playerTennisScore.next()
         }
-    }
 
-    func checkIfDeuce() {
-        if (player1TennisScore == .Advantage) && (player1TennisScore == player2TennisScore) {
-            player1TennisScore = player1TennisScore.next()
-            player2TennisScore = player2TennisScore.next()
+        if (playerTennisScore == .Advantage) && (playerTennisScore == otherPlayerTennisScore) {
+            playerTennisScore = playerTennisScore.next()
+            otherPlayerTennisScore = otherPlayerTennisScore.next()
         }
     }
 }
