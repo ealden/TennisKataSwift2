@@ -69,17 +69,28 @@ class TennisGame {
 
     func player1Scores() {
         player1TennisScore = score(player1TennisScore, against: player2TennisScore)
+
+        checkIfDeuce()
     }
 
     func player2Scores() {
         player2TennisScore = score(player2TennisScore, against: player1TennisScore)
+
+        checkIfDeuce()
     }
 
     func score(playerTennisScore: TennisScore, against otherPlayerTennisScore: TennisScore) -> TennisScore {
-        if (playerTennisScore == .Forty) && (otherPlayerTennisScore != .Forty) {
+        if (playerTennisScore == .Forty) && (otherPlayerTennisScore != .Forty) && (otherPlayerTennisScore != .Advantage) {
             return .Win
         } else {
             return playerTennisScore.next()
+        }
+    }
+
+    func checkIfDeuce() {
+        if (player1TennisScore == .Advantage) && (player1TennisScore == player2TennisScore) {
+            player1TennisScore = player1TennisScore.next()
+            player2TennisScore = player2TennisScore.next()
         }
     }
 }
