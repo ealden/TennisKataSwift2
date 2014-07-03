@@ -56,7 +56,7 @@ class Player {
             case .Forty:
                 return .Advantage
             case .Advantage:
-                return .Forty
+                return .Advantage
             case .Win:
                 return .Win
             }
@@ -83,8 +83,8 @@ class Player {
         }
 
         if (score == .Advantage) && (score == otherPlayer.score) {
-            scores()
-            otherPlayer.scores()
+            score = .Forty
+            otherPlayer.score = .Forty
         }
     }
 }
