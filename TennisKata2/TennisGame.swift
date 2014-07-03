@@ -76,13 +76,9 @@ class Player {
             score = .Win
         } else if (score == .Advantage) && (otherPlayer.score == .Forty) {
             score = .Win
+        } else if (score == .Forty) && (otherPlayer.score == .Advantage) {
+            otherPlayer.score = .Forty
         } else {
             scores()
-        }
-
-        if (score == .Advantage) && (score == otherPlayer.score) {
-            score = .Forty
-            otherPlayer.score = .Forty
-        }
-    }
+        }    }
 }
