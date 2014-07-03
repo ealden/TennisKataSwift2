@@ -72,13 +72,15 @@ class Player {
     }
 
     func scores(against otherPlayer: Player) {
-        if (score == .Forty) && (otherPlayer.score != .Forty) && (otherPlayer.score != .Advantage) {
+        switch (score, otherPlayer.score) {
+        case (.Forty, .Love), (.Forty, .Fifteen), (.Forty, .Thirty):
             score = .Win
-        } else if (score == .Advantage) && (otherPlayer.score == .Forty) {
+        case (.Advantage, .Forty):
             score = .Win
-        } else if (score == .Forty) && (otherPlayer.score == .Advantage) {
+        case (.Forty, .Advantage):
             otherPlayer.score = .Forty
-        } else {
+        default:
             scores()
-        }    }
+        }
+    }
 }
