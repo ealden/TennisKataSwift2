@@ -74,13 +74,17 @@ class Player {
     func scores(against otherPlayer: Player) {
         switch (score, otherPlayer.score) {
         case (.Forty, .Love), (.Forty, .Fifteen), (.Forty, .Thirty):
-            score = .Win
+            win()
         case (.Advantage, .Forty):
-            score = .Win
+            win()
         case (.Forty, .Advantage):
             otherPlayer.score = .Forty
         default:
             scores()
         }
+    }
+
+    func win() {
+        score = .Win
     }
 }
