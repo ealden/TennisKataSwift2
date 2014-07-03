@@ -64,24 +64,24 @@ class TennisGame {
     var player2TennisScore = TennisScore.Love
 
     func player1Scores() {
-        player1TennisScore = score(player1TennisScore, against: player2TennisScore)
+        score(&player1TennisScore, against: &player2TennisScore)
 
         checkIfDeuce()
     }
 
     func player2Scores() {
-        player2TennisScore = score(player2TennisScore, against: player1TennisScore)
+        score(&player2TennisScore, against: &player1TennisScore)
 
         checkIfDeuce()
     }
 
-    func score(playerTennisScore: TennisScore, against otherPlayerTennisScore: TennisScore) -> TennisScore {
+    func score(inout playerTennisScore: TennisScore, inout against otherPlayerTennisScore: TennisScore) {
         if (playerTennisScore == .Forty) && (otherPlayerTennisScore != .Forty) && (otherPlayerTennisScore != .Advantage) {
-            return .Win
+            playerTennisScore = .Win
         } else if (playerTennisScore == .Advantage) && (otherPlayerTennisScore == .Forty) {
-            return .Win
+            playerTennisScore = .Win
         } else {
-            return playerTennisScore.next()
+            playerTennisScore = playerTennisScore.next()
         }
     }
 
