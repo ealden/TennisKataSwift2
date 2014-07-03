@@ -1,17 +1,7 @@
 import Foundation
 
 class TennisGame {
-    let tennisScoreToString = [
-        Player.Score.Love: "Love",
-        .Fifteen: "Fifteen",
-        .Thirty: "Thirty",
-        .Forty: "Forty"
-    ]
-
     var score: String {
-        let player1Score = tennisScoreToString[player1.score]
-        let player2Score = tennisScoreToString[player2.score]
-
         if player2.score == .Win {
             return "Player 2 Wins!"
         }
@@ -26,11 +16,11 @@ class TennisGame {
         case (_, .Advantage):
             return "Advantage Player 2"
         case (.Love, .Love), (.Fifteen, .Fifteen), (.Thirty, .Thirty):
-            return "\(player1Score)-All"
+            return "\(player1.score.toString())-All"
         case (.Forty, .Forty):
             return "Deuce"
         default:
-            return "\(player1Score)-\(player2Score)"
+            return "\(player1.score.toString())-\(player2.score.toString())"
         }
     }
 
@@ -62,13 +52,13 @@ class TennisGame {
 }
 
 class Player {
-    enum Score {
-        case Love
-        case Fifteen
-        case Thirty
-        case Forty
-        case Advantage
-        case Win
+    enum Score: String {
+        case Love = "Love"
+        case Fifteen = "Fifteen"
+        case Thirty = "Thirty"
+        case Forty = "Forty"
+        case Advantage = "Advantage"
+        case Win = "Win"
 
         func next() -> Score {
             switch self {
@@ -85,6 +75,10 @@ class Player {
             case .Win:
                 return .Win
             }
+        }
+
+        func toString() -> String {
+            return toRaw()
         }
     }
 
