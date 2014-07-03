@@ -16,11 +16,11 @@ class TennisGame {
         case (_, .Advantage):
             return "Advantage Player 2"
         case (.Love, .Love), (.Fifteen, .Fifteen), (.Thirty, .Thirty):
-            return "\(player1.score.toString())-All"
+            return "\(player1.playerScore)-All"
         case (.Forty, .Forty):
             return "Deuce"
         default:
-            return "\(player1.score.toString())-\(player2.score.toString())"
+            return "\(player1.playerScore)-\(player2.playerScore)"
         }
     }
 
@@ -61,13 +61,13 @@ class Player {
                 return .Win
             }
         }
-
-        func toString() -> String {
-            return toRaw()
-        }
     }
 
     var score = Score.Love
+
+    var playerScore: String {
+        return score.toRaw()
+    }
 
     func scores() {
         score = score.next()
