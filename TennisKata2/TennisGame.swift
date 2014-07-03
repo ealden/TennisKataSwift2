@@ -78,6 +78,8 @@ class TennisGame {
     func score(playerTennisScore: TennisScore, against otherPlayerTennisScore: TennisScore) -> TennisScore {
         if (playerTennisScore == .Forty) && (otherPlayerTennisScore != .Forty) && (otherPlayerTennisScore != .Advantage) {
             return .Win
+        } else if (playerTennisScore == .Advantage) && (otherPlayerTennisScore == .Forty) {
+            return .Win
         } else {
             return playerTennisScore.next()
         }
