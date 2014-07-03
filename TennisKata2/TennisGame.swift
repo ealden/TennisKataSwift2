@@ -55,10 +55,8 @@ class Player {
                 return .Forty
             case .Forty:
                 return .Advantage
-            case .Advantage:
-                return .Advantage
-            case .Win:
-                return .Win
+            default:
+                return self
             }
         }
     }
