@@ -41,12 +41,12 @@ class TennisGame {
         } else if (player.score == .Advantage) && (otherPlayer.score == .Forty) {
             player.score = .Win
         } else {
-            player.score = player.score.next()
+            player.scores()
         }
 
         if (player.score == .Advantage) && (player.score == otherPlayer.score) {
-            player.score = player.score.next()
-            otherPlayer.score = otherPlayer.score.next()
+            player.scores()
+            otherPlayer.scores()
         }
     }
 }
@@ -83,4 +83,8 @@ class Player {
     }
 
     var score = Score.Love
+
+    func scores() {
+        score = score.next()
+    }
 }
