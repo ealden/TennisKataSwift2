@@ -1,34 +1,8 @@
 import Foundation
 
 class TennisGame {
-    enum TennisScore {
-        case Love
-        case Fifteen
-        case Thirty
-        case Forty
-        case Advantage
-        case Win
-
-        func next() -> TennisScore {
-            switch self {
-            case .Love:
-                return .Fifteen
-            case .Fifteen:
-                return .Thirty
-            case .Thirty:
-                return .Forty
-            case .Forty:
-                return .Advantage
-            case .Advantage:
-                return .Forty
-            case .Win:
-                return .Win
-            }
-        }
-    }
-
     let tennisScoreToString = [
-        TennisScore.Love: "Love",
+        Player.Score.Love: "Love",
         .Fifteen: "Fifteen",
         .Thirty: "Thirty",
         .Forty: "Forty"
@@ -88,5 +62,31 @@ class TennisGame {
 }
 
 class Player {
-    var score = TennisGame.TennisScore.Love
+    enum Score {
+        case Love
+        case Fifteen
+        case Thirty
+        case Forty
+        case Advantage
+        case Win
+
+        func next() -> Score {
+            switch self {
+            case .Love:
+                return .Fifteen
+            case .Fifteen:
+                return .Thirty
+            case .Thirty:
+                return .Forty
+            case .Forty:
+                return .Advantage
+            case .Advantage:
+                return .Forty
+            case .Win:
+                return .Win
+            }
+        }
+    }
+
+    var score = Score.Love
 }
