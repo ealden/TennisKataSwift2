@@ -35,14 +35,14 @@ class TennisGame {
     ]
 
     var score: String {
-        let player1Score = tennisScoreToString[player1TennisScore]
-        let player2Score = tennisScoreToString[player2TennisScore]
+        let player1Score = tennisScoreToString[player1.score]
+        let player2Score = tennisScoreToString[player2.score]
 
-        if player2TennisScore == .Win {
+        if player2.score == .Win {
             return "Player 2 Wins!"
         }
 
-        switch (player1TennisScore, player2TennisScore) {
+        switch (player1.score, player2.score) {
         case (.Win, _):
             return "Player 1 Wins!"
         case (_, .Win):
@@ -60,29 +60,33 @@ class TennisGame {
         }
     }
 
-    var player1TennisScore = TennisScore.Love
-    var player2TennisScore = TennisScore.Love
+    var player1 = Player()
+    var player2 = Player()
 
     func player1Scores() {
-        score(&player1TennisScore, against: &player2TennisScore)
+        score(&player1, against: &player2)
     }
 
     func player2Scores() {
-        score(&player2TennisScore, against: &player1TennisScore)
+        score(&player2, against: &player1)
     }
 
-    func score(inout playerTennisScore: TennisScore, inout against otherPlayerTennisScore: TennisScore) {
-        if (playerTennisScore == .Forty) && (otherPlayerTennisScore != .Forty) && (otherPlayerTennisScore != .Advantage) {
-            playerTennisScore = .Win
-        } else if (playerTennisScore == .Advantage) && (otherPlayerTennisScore == .Forty) {
-            playerTennisScore = .Win
+    func score(inout player: Player, inout against otherPlayer: Player) {
+        if (player.score == .Forty) && (otherPlayer.score != .Forty) && (otherPlayer.score != .Advantage) {
+            player.score = .Win
+        } else if (player.score == .Advantage) && (otherPlayer.score == .Forty) {
+            player.score = .Win
         } else {
-            playerTennisScore = playerTennisScore.next()
+            player.score = player.score.next()
         }
 
-        if (playerTennisScore == .Advantage) && (playerTennisScore == otherPlayerTennisScore) {
-            playerTennisScore = playerTennisScore.next()
-            otherPlayerTennisScore = otherPlayerTennisScore.next()
+        if (player.score == .Advantage) && (player.score == otherPlayer.score) {
+            player.score = player.score.next()
+            otherPlayer.score = otherPlayer.score.next()
         }
     }
+}
+
+class Player {
+    var score = TennisGame.TennisScore.Love
 }
