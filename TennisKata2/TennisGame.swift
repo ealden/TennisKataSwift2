@@ -51,12 +51,8 @@ class TennisGame {
             return "Advantage Player 1"
         case (_, .Advantage):
             return "Advantage Player 2"
-        case (.Love, .Love):
-            return "Love-All"
-        case (.Fifteen, .Fifteen):
-            return "Fifteen-All"
-        case (.Thirty, .Thirty):
-            return "Thirty-All"
+        case (.Love, .Love), (.Fifteen, .Fifteen), (.Thirty, .Thirty):
+            return "\(player1Score)-All"
         case (.Forty, .Forty):
             return "Deuce"
         default:
