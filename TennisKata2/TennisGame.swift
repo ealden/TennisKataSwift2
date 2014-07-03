@@ -2,6 +2,9 @@ import Foundation
 
 class TennisGame {
     var score: String {
+        // WORKAROUND
+        // Having (_, .Win) then (_, .Advantage) causes switch to miss the former
+        // and go straight to default.  So we define that condition explictly.
         if player2.score == .Win {
             return "Player 2 Wins!"
         }
