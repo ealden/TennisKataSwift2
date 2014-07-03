@@ -28,26 +28,11 @@ class TennisGame {
     var player2 = Player()
 
     func player1Scores() {
-        score(&player1, against: &player2)
+        player1.scores(against: player2)
     }
 
     func player2Scores() {
-        score(&player2, against: &player1)
-    }
-
-    func score(inout player: Player, inout against otherPlayer: Player) {
-        if (player.score == .Forty) && (otherPlayer.score != .Forty) && (otherPlayer.score != .Advantage) {
-            player.score = .Win
-        } else if (player.score == .Advantage) && (otherPlayer.score == .Forty) {
-            player.score = .Win
-        } else {
-            player.scores()
-        }
-
-        if (player.score == .Advantage) && (player.score == otherPlayer.score) {
-            player.scores()
-            otherPlayer.scores()
-        }
+        player2.scores(against: player1)
     }
 }
 
@@ -86,5 +71,20 @@ class Player {
 
     func scores() {
         score = score.next()
+    }
+
+    func scores(against otherPlayer: Player) {
+        if (score == .Forty) && (otherPlayer.score != .Forty) && (otherPlayer.score != .Advantage) {
+            score = .Win
+        } else if (score == .Advantage) && (otherPlayer.score == .Forty) {
+            score = .Win
+        } else {
+            scores()
+        }
+
+        if (score == .Advantage) && (score == otherPlayer.score) {
+            scores()
+            otherPlayer.scores()
+        }
     }
 }
