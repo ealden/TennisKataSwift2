@@ -133,6 +133,15 @@ class TennisGameTests: XCTestCase {
         XCTAssertEqual(game.score, "Player 1 Wins!")
     }
 
+    func testScoreShouldBePlayer2WinsWhenPlayer2ScoresTwiceAfterDeuce() {
+        deuce()
+
+        game.player2Scores()
+        game.player2Scores()
+
+        XCTAssertEqual(game.score, "Player 2 Wins!")
+    }
+
     func deuce() {
         game.player1Scores()
         game.player2Scores()
